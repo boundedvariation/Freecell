@@ -75,11 +75,11 @@ instance Show Board where
                                 fcstring ++ "\n"
                 where
                         csstring = intercalate "\n" $ 
-                                map (\x -> "C " ++ unwords (map cardstring x)) cs
+                                map (\x -> "C " ++ unwords (map cardString x)) cs
                         fdstring = intercalate "\n" $ 
-                                map (\x -> "FD " ++ unwords (map cardstring x)) fd
+                                map (\x -> "FD " ++ unwords (map cardString x)) fd
                         fcstring = "FC " ++ 
-                                unwords (map cardstring $ S.elems fc)
+                                unwords (map cardString $ S.elems fc)
 
 -- |Type to hold the location of a card.
 data Location = Cascades Int | CascadesSource | Foundations | FreeCells deriving (Show, Eq)
@@ -337,39 +337,42 @@ parser ('A' : ks) = Card Ace $ suitParser ks
 parser x = error $ "Bad parse string: " ++ x
 
 -- |Returns a single character for each rank.
-cardchar :: Rank -> Char
-cardchar Ace = 'A'
-cardchar King = 'K'
-cardchar Queen = 'Q'
-cardchar Jack = 'J'
-cardchar Ten = 'T'
-cardchar Nine = '9'
-cardchar Eight = '8'
-cardchar Seven = '7'
-cardchar Six = '6'
-cardchar Five = '5'
-cardchar Four = '4'
-cardchar Three = '3'
-cardchar Two = '2'
+cardChar :: Rank -> Char
+cardChar c = case c of
+        Ace -> 'A'
+        King -> 'K'
+        Queen -> 'Q'
+        Jack -> 'J'
+        Ten -> 'T'
+        Nine -> '9'
+        Eight -> '8'
+        Seven -> '7'
+        Six -> '6'
+        Five -> '5'
+        Four -> '4'
+        Three -> '3'
+        Two -> '2'
 
 -- |Returns a character for each suit.
-suitchar :: Suit -> Char
-suitchar Heart = 'H'
-suitchar Club = 'C'
-suitchar Diamond = 'D'
-suitchar Spade = 'S'
+suitChar :: Suit -> Char
+suitChar s = case s of
+        Heart -> 'H'
+        Club -> 'C'
+        Diamond -> 'D'
+        Spade -> 'S'
 
 -- |Returns a string for each card.
-cardstring :: Card -> String
-cardstring (Card rk st) = [cardchar rk, suitchar st]
+cardString :: Card -> String
+cardString (Card rk st) = [cardChar rk, suitChar st]
 
 -- |Parses a string into a suit
 suitParser :: String -> Suit
-suitParser "H" = Heart
-suitParser "C" = Club
-suitParser "D" = Diamond
-suitParser "S" = Spade
-suitParser x = error $ "Unrecognized suit: " ++ x
+suitParser x = case x of
+        "H" -> Heart
+        "C" -> Club
+        "D" -> Diamond
+        "S" -> Spade
+        _ -> error $ "Unrecognized suit: " ++ x
 
 -- |A list of all 52 cards.
 deck :: [Card]
