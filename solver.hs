@@ -164,8 +164,8 @@ entropyScore (Board cs fd fc) = nullPoints + buriedFDs + runs
                 runs = sum $ map runlength cs
                 runlength (Card King _:_) = -1
                 runlength (x1:x2:xs) | (succ (rank x1) == rank x2) && 
-                                                           (red x1 == black x2) = -1 + runlength (x2:xs)
-                                                         | otherwise = 0
+                                       (red x1 == black x2) = -1 + runlength (x2:xs)
+                                     | otherwise = 0
                 runlength (_:_) = -1
                 runlength [] = 0
                 nextCard [] = Card Ace
@@ -200,7 +200,7 @@ allCardPlays :: Board -> Card -> Location -> [GameState]
 allCardPlays bd card source = allCardPlaysNoFC bd card source ++ fcplays
         where
                 fcplays = [GameState (pushFreeCell bd card) 
-                                        (Move card source FreeCells) | playableFreeCell bd]
+                                (Move card source FreeCells) | playableFreeCell bd]
 
 -- |Determines all legal plays excluding freecells.  Not sure this is necessary...
 allCardPlaysNoFC :: Board -> Card -> Location -> [GameState]
@@ -211,8 +211,8 @@ allCardPlaysNoFC bd card source = pf ++ stackplays
                 cascadeInts = playableCascades bd card
                 cascadeBoards = map (pushCascade bd card) cascadeInts
                 stackplays = map (\(x,y) -> GameState x $ 
-                                        Move card source (Cascades y)) $ 
-                                    zip cascadeBoards cascadeInts
+                                Move card source (Cascades y)) $ 
+                                zip cascadeBoards cascadeInts
 
 -- |Determines which cards are available to be played from the cascades.
 availableCascadeCards :: Board -> [Card]
@@ -408,20 +408,22 @@ playGame = do
                 print g
                 putStrLn ("Entropy: " ++ show (entropyScore g))
                 if solvedBoard g then putStrLn "You win!" else do
-                        let 
+                        let
                                 states = allPermissable g
                                 moves = map sourceMove states
                                 boards = map gameBoard states
                                 movenums = [0..length moves]
                                 selMove = do
-                                                selectedMove <- read <$> getLine :: IO Int
-                                                if (selectedMove >= length moves) || (selectedMove < 0) then
-                                                        putStrLn "Invalid move, select again." >> selMove 
-                                                                else return selectedMove
+                                        selectedMove <- read <$> getLine :: IO Int
+                                        if (selectedMove >= length moves) || (selectedMove < 0) then
+                                                putStrLn "Invalid move, select again." >> selMove 
+                                                      else return selectedMove
                         if null moves then putStrLn "No possible moves, you lose." else 
                                 if length moves == 1 then putStrLn "Move forced .... " >> playloop (head boards) else do
                                         putStrLn "Select next move from list: "
-                                        putStrLn $ concatMap (\(x,y) -> show x ++ ": " ++ show y) $ zip movenums moves
+                                        putStrLn $ 
+                                                concatMap (\(x,y) -> show x ++ ": " ++ show y) $ 
+                                                zip movenums moves
                                         mv <- selMove
                                         playloop $ boards !! mv
         playloop gm
@@ -441,4 +443,4 @@ applyAt list num f = applyAt' list 0
         where
                 applyAt' [] _ = []
                 applyAt' (v:vs) counter | counter == num = f v : vs
-                                                                | otherwise = v : applyAt' vs (counter + 1)
+                                        | otherwise = v : applyAt' vs (counter + 1)
