@@ -1,5 +1,9 @@
-.gitignore
-.gitattributes
+*.gitignore
+*.gitattributes
+*.hi
+*.o
+*.exe
+*.txt
 
 # Windows image file caches
 Thumbs.db
