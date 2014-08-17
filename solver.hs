@@ -112,8 +112,8 @@ instance Show Board where
         unlines [csstring, fdstring, fcstring]
 
       where
-        csstring = intercalate "\n" $ for cs $ ("C "  ++) . unwords . map cardString
-        fdstring = intercalate "\n" $ for fd $ ("FD " ++) . unwords . map cardString
+        csstring = unlines $ for cs $ ("C "  ++) . unwords . map cardString
+        fdstring = unlines $ for fd $ ("FD " ++) . unwords . map cardString
         fcstring = "FC " ++ unwords (map cardString $ S.elems fc)
 
 for = flip map
