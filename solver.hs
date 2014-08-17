@@ -255,7 +255,7 @@ entropyScore (Board cs fd fc) =
 
     buriedFDs = (*3) 
         $ sum 
-        $ findIndices (`elem` nextCards) `concatMap` cs
+        $ cs `concatFor` findIndices (`elem` nextCards)
 
     continues x2 x1 = 
         and [ succ (rank x1) == rank  x2
