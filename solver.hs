@@ -269,11 +269,11 @@ playableCascades (Board stacks _ _) cd =
 
   where
     playableCascade stack = case stack of
-        [] -> True
+        []             -> True
         Card Ace _ : _ -> False
         st         : _ ->
-            and [ black cd == red st
-                , pred (rank st) == rank cd
+            and [ black cd == red        st
+                , rank  cd == pred (rank st)
                 ]
 
 -- |Determines if a card can be played on the foundation stacks.
@@ -349,7 +349,7 @@ highestForceable stacks bool = case (stacks, bool) of
         | otherwise                  -> lesser
 
       where 
-        (stack1,stack2) = if not rd then (he, di) else (cl, sp)
+        (stack1, stack2) = if not rd then (he, di) else (cl, sp)
         
         lesser = safesucc $ rank $ head $ if rank (head stack1) > rank (head stack2) then stack2 else stack1
 
@@ -368,10 +368,12 @@ forcedMove state = case state of
 allPermissable :: Board -> [GameState]
 allPermissable bd = 
     filter ((/= bd) . gameBoard)
-        $ if any forcedMove moves 
-          then take 1 $ filter forcedMove moves
-          else moves
+        $ if null forced
+          then moves
+          else take 1 forced
   where
+    forced = filter forcedMove moves
+  
     fccards  = availableFreeCellCards bd
     fcboards = for fccards $ popFreeCell bd
     
@@ -404,7 +406,7 @@ buildTree bd =
     f b = (b, moves)
 
       where    
-        moves = if null val then [] else map (:b) val
+        moves = map (:b) val
      
         val = 
             filter (not . (`elem` map gameBoard b) . gameBoard) $
