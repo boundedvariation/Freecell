@@ -38,6 +38,7 @@ module FreeCell
     , -- * I/O with games
       loadFile
     , loadBoardFromText
+    , solveFile
     , -- * Accessor functions for the card types 
       rank
     , suit
@@ -637,6 +638,16 @@ solveRandomGame = do
     
     writeFile "out.txt" (show x ++ show j)
     
+    print j
+
+solveFile :: FilePath -> IO ()
+solveFile fn = do
+    x <- loadFile fn
+
+    let j = treeSolverPruned x
+
+    writeFile "out.txt" (show x ++ show j)
+
     print j
 
 -- |A generic list function that was necessary.
