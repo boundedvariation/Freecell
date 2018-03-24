@@ -38,6 +38,7 @@ module FreeCell
     , -- * I/O with games
       loadFile
     , loadBoardFromText
+    , solveFile
     , -- * Accessor functions for the card types 
       rank
     , suit
@@ -496,8 +497,8 @@ parser (rankChar : rest) =
     Card rank suit
 
   where
-    rank = fromMaybe (error $ "Bad parse string: " ++ (rankChar : rest))
-        $ rankChar `lookup` zip "23456789TJQKA" [Two ..]
+    rank = fromMaybe (error $ "Bad parse string: " ++ (rankChar : ""))
+        $ rankChar `lookup` zip "23456789TJQKA" ([Two .. King] ++ [Ace])
         
     suit = suitParser rest
         
@@ -637,6 +638,16 @@ solveRandomGame = do
     
     writeFile "out.txt" (show x ++ show j)
     
+    print j
+
+solveFile :: FilePath -> IO ()
+solveFile fn = do
+    x <- loadFile fn
+
+    let j = treeSolverPruned x
+
+    writeFile "out.txt" (show x ++ show j)
+
     print j
 
 -- |A generic list function that was necessary.
