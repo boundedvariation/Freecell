@@ -496,8 +496,8 @@ parser (rankChar : rest) =
     Card rank suit
 
   where
-    rank = fromMaybe (error $ "Bad parse string: " ++ (rankChar : rest))
-        $ rankChar `lookup` zip "23456789TJQKA" [Two ..]
+    rank = fromMaybe (error $ "Bad parse string: " ++ (rankChar : ""))
+        $ rankChar `lookup` zip "23456789TJQKA" ([Two .. King] ++ [Ace])
         
     suit = suitParser rest
         
