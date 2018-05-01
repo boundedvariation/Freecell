@@ -9,7 +9,7 @@ Stability   : experimental
 This lets you play FreeCell.  It's fun, I think.
 -}
 
-module FreeCell 
+module FreeCell
     (  -- * Types to work with playing cards
       Rank
     , Suit
@@ -39,7 +39,7 @@ module FreeCell
       loadFile
     , loadBoardFromText
     , solveFile
-    , -- * Accessor functions for the card types 
+    , -- * Accessor functions for the card types
       rank
     , suit
     , cascades
@@ -47,7 +47,7 @@ module FreeCell
     , freecells
     , gameBoard
     , sourceMove
-    ) 
+    )
 where
 
 import Control.Applicative ((<$>))
@@ -66,24 +66,24 @@ import System.Random
 -- |Type to represent the rank of a card, from Ace to King.
 data Rank = Ace | Two | Three | Four | Five | Six | Seven | Eight |
         Nine | Ten | Jack | Queen | King
-        
+
   deriving (Show, Eq, Enum, Ord)
 
 -- |Type to represent suit of a card.
-data Suit 
-    = Heart 
-    | Diamond 
-    | Club 
-    | Spade 
-    
+data Suit
+    = Heart
+    | Diamond
+    | Club
+    | Spade
+
   deriving (Show, Eq, Enum, Ord)
 
 -- |Type to represent a playing card.  Has a suit and a rank.
-data Card = Card 
+data Card = Card
     { rank :: Rank
-    , suit :: Suit 
-    } 
-    
+    , suit :: Suit
+    }
+
   deriving (Show, Eq, Ord)
 
 -- |Type alias to represent a stack of cards.
@@ -93,23 +93,23 @@ type Stack = [Card]
 type CardSet = Set Card
 
 -- |Type to represent a game board: 8 cascades, 4 foundations, 4 freecells.
-data Board = Board 
+data Board = Board
     { cascades    :: [Stack]
     , foundations :: [Stack]
     , freecells   ::  CardSet
-    } 
-    
+    }
+
   deriving Ord
 
 instance Eq Board where
-    Board cs fd fc == Board cs' fd' fc' = 
+    Board cs fd fc == Board cs' fd' fc' =
         and [ fd == fd'
             , fc == fc'
             , S.fromList cs == S.fromList cs'
             ]
 
 instance Show Board where
-    show (Board cs fd fc) = 
+    show (Board cs fd fc) =
         unlines [csstring, fdstring, fcstring]
 
       where
@@ -120,29 +120,29 @@ instance Show Board where
 for = flip map
 
 -- |Type to hold the location of a card.
-data Location 
-    = Cascades Int 
-    | CascadesSource 
-    | Foundations 
-    | FreeCells 
-    
+data Location
+    = Cascades Int
+    | CascadesSource
+    | Foundations
+    | FreeCells
+
   deriving (Show, Eq)
 
 
 -- |Type holds a card, it's prior location, and it's eventual location.  Alternately,
 -- it can hold BeginGame, which just represents that this was the initial board.
-data Move 
-    = Move Card Location Location 
-    | BeginGame 
-    
+data Move
+    = Move Card Location Location
+    | BeginGame
+
   deriving Eq
 
 -- |Type to hold a board and the move that resulted in that board.
-data GameState = GameState 
+data GameState = GameState
     { gameBoard  :: Board
-    , sourceMove :: Move 
-    } 
-    
+    , sourceMove :: Move
+    }
+
   deriving (Show, Eq)
 
 -- | Type alias to use for tree constructed for the solver.
@@ -158,14 +158,14 @@ instance Show Solution where
         _              -> ""
 
 instance Show Move where
-    show move = case move of 
+    show move = case move of
         Move (Card rk st) l1 l2 ->
-            show rk ++ " " ++ 
-            show st ++ ": " ++ 
-            show l1 ++ " -> " ++ 
+            show rk ++ " " ++
+            show st ++ ": " ++
+            show l1 ++ " -> " ++
             show l2 ++ "\n"
-        
-        BeginGame -> 
+
+        BeginGame ->
             ""
 
 -- |Returns whether a card is red.
@@ -182,15 +182,15 @@ suitAssoc = zip [0..] [Heart .. Spade]
 
 -- |Push a card into a cascade.
 pushCascade :: Board -> Card -> Int -> Board
-pushCascade (Board cs fd fc) cd num = 
+pushCascade (Board cs fd fc) cd num =
     Board cs' fd fc
 
-  where 
+  where
     cs' = applyAt cs num (cd :)
 
 -- |Pop a card out of a cascade.
 popCascade :: Board -> Card -> Board
-popCascade (Board cs fd fc) cd = 
+popCascade (Board cs fd fc) cd =
     Board cs' fd fc
 
   where
@@ -198,23 +198,23 @@ popCascade (Board cs fd fc) cd =
 
     stackf []      = []
     stackf ([]:xs) = [] : stackf xs
-    stackf (x :xs) 
+    stackf (x :xs)
         | head x == cd = tail x :        xs
         | otherwise    = x      : stackf xs
 
 -- |Push a card into a foundation stack.
 pushFoundation :: Board -> Card -> Board
-pushFoundation (Board cs fd fc) (Card rk st) = 
+pushFoundation (Board cs fd fc) (Card rk st) =
     Board cs fd' fc
 
-  where 
+  where
     fd' = applyAt fd num (Card rk st :)
     num = fromJust $ elemIndex st [Heart .. Spade]
 
 -- |Push a card into a freecell.
 pushFreeCell :: Board -> Card -> Board
-pushFreeCell (Board cs fd fc) cd = 
-    Board cs fd 
+pushFreeCell (Board cs fd fc) cd =
+    Board cs fd
     $ S.insert cd fc
 
 -- |Pop a card out of a freecell.
@@ -222,12 +222,12 @@ popFreeCell :: Board -> Card -> Board
 popFreeCell (Board cs fd fc) card =
     Board cs fd fc'
 
-  where 
+  where
     fc' = S.delete card fc
 
 -- |Just a dumb function to attempt to identify to score moves.  Needs work, clearly.
 entropyScore :: Board -> Int
-entropyScore (Board cs fd fc) = 
+entropyScore (Board cs fd fc) =
     nullPoints + buriedFDs + runs
 
   where
@@ -237,35 +237,35 @@ entropyScore (Board cs fd fc) =
 
     runlength stack = case stack of
         Card King _ : _ -> -1
-        
+
         x1 : x2 : xs ->
             if   x2 `continues` x1
             then -1 + runlength (x2:xs)
             else  0
-            
+
         _ : _ -> -1
         [] ->     0
-        
+
     nextCard stack = case stack of
         []           -> Card   Ace
         Card x _ : _ -> Card $ safesucc x
-    
-    nextCards = 
-        for suitAssoc $ \(x,y) -> 
+
+    nextCards =
+        for suitAssoc $ \(x,y) ->
             nextCard (fd !! x) y
 
-    buriedFDs = (*3) 
-        $ sum 
+    buriedFDs = (*3)
+        $ sum
         $ cs `concatFor` findIndices (`elem` nextCards)
 
-    continues x2 x1 = 
+    continues x2 x1 =
         and [ succ (rank x1) == rank  x2
             , red        x1  == black x2
             ]
 
 -- |Determines which cascades a card can be played on.
 playableCascades :: Board -> Card -> [Int]
-playableCascades (Board stacks _ _) cd = 
+playableCascades (Board stacks _ _) cd =
     findIndices playableCascade stacks
 
   where
@@ -279,10 +279,10 @@ playableCascades (Board stacks _ _) cd =
 
 -- |Determines if a card can be played on the foundation stacks.
 playableFoundation :: Board -> Card -> Bool
-playableFoundation (Board _ xs _) (Card rk st) = 
+playableFoundation (Board _ xs _) (Card rk st) =
     playableFoundation' (xs !! num)
 
-  where 
+  where
     num = fromJust $ elemIndex st [Heart .. Spade]
 
     playableFoundation' stack = case stack of
@@ -295,15 +295,15 @@ playableFreeCell (Board _ _ fc) = S.size fc < 4
 
 -- |Determines all legal plays for a given Board and Card.
 allCardPlays :: Board -> Card -> Location -> [GameState]
-allCardPlays bd card source = 
+allCardPlays bd card source =
     allCardPlaysNoFC bd card source ++ fcplays
 
   where
-    fcplays = 
-        [GameState 
-            (pushFreeCell bd card) 
-            (Move card source FreeCells) 
-        
+    fcplays =
+        [GameState
+            (pushFreeCell bd card)
+            (Move card source FreeCells)
+
         | playableFreeCell bd
         ]
 
@@ -312,22 +312,22 @@ allCardPlaysNoFC :: Board -> Card -> Location -> [GameState]
 allCardPlaysNoFC bd card source = pf ++ stackplays
 
   where
-    pf = [GameState 
-            (pushFoundation bd card) 
-            (Move card source Foundations) 
-            
+    pf = [GameState
+            (pushFoundation bd card)
+            (Move card source Foundations)
+
          | playableFoundation bd card
          ]
-         
+
     cascadeInts   = playableCascades bd card
     cascadeBoards = for cascadeInts $ pushCascade bd card
-    
-    stackplays = zip cascadeBoards cascadeInts `for` \(x, y) -> 
+
+    stackplays = zip cascadeBoards cascadeInts `for` \(x, y) ->
         GameState x $ Move card source $ Cascades y
 
 -- |Determines which cards are available to be played from the cascades.
 availableCascadeCards :: Board -> [Card]
-availableCascadeCards (Board cs _ _) = 
+availableCascadeCards (Board cs _ _) =
     map head $ filter (not . null) cs
 
 -- |Determines which cards are in the freecells.
@@ -345,18 +345,18 @@ highestForceable :: [[Card]] -> Bool -> Rank
 highestForceable stacks bool = case (stacks, bool) of
     ([[],[],_ ,_ ], False) -> Two
     ([_ ,_ ,[],[]], True)  -> Two
-    ([he,di,cl,sp], rd) 
+    ([he,di,cl,sp], rd)
         | null stack1 || null stack2 -> Two
         | otherwise                  -> lesser
 
-      where 
+      where
         (stack1, stack2) = if not rd then (he, di) else (cl, sp)
-        
+
         lesser = safesucc $ rank $ head $ if rank (head stack1) > rank (head stack2) then stack2 else stack1
 
     _ -> Two
 
--- |Determines which moves to the foundations should be forced 
+-- |Determines which moves to the foundations should be forced
 -- (i.e. an Ace is played automatically to the foundations.)
 forcedMove :: GameState -> Bool
 forcedMove state = case state of
@@ -367,31 +367,31 @@ forcedMove state = case state of
 
 -- |Determines all of the permissable moves for a given board.
 allPermissable :: Board -> [GameState]
-allPermissable bd = 
+allPermissable bd =
     filter ((/= bd) . gameBoard)
         $ if null forced
           then moves
           else take 1 forced
   where
     forced = filter forcedMove moves
-  
+
     fccards  = availableFreeCellCards bd
     fcboards = for fccards $ popFreeCell bd
-    
+
     cscards  = availableCascadeCards bd
     csboards = for cscards $ popCascade bd
-    
+
     cards  = fccards  ++ cscards
     boards = fcboards ++ csboards
-    
-    sources = 
-        replicate (length fccards) FreeCells ++ 
+
+    sources =
+        replicate (length fccards) FreeCells ++
         replicate (length cscards) CascadesSource
-              
+
     moves =
-        zip3 boards cards sources `concatFor` \(a,b,c) -> 
+        zip3 boards cards sources `concatFor` \(a,b,c) ->
             allCardPlays a b c
-            
+
 concatFor = flip concatMap
 
 -- |Checks if a board is solved.
@@ -400,65 +400,65 @@ solvedBoard (Board cs _ fc) = all null cs && S.null fc
 
 -- |Builds the lazy tree to hold all board moves.
 buildTree :: Board -> FCTree
-buildTree bd = 
+buildTree bd =
     unfoldTree f [GameState bd BeginGame]
 
-  where 
+  where
     f b = (b, moves)
 
-      where    
+      where
         moves = map (:b) val
-     
-        val = 
+
+        val =
             filter (not . (`elem` map gameBoard b) . gameBoard) $
             sortBy (compare `on` (entropyScore . gameBoard)) $
-            allPermissable $ 
-            gameBoard $ 
+            allPermissable $
+            gameBoard $
             head b
 
 -- |Checks the depth-first flattened structure of the board for a solution.
 -- Naive and slow.
 treeSolverDF :: Board -> Solution
-treeSolverDF = Solution 
-    . map sourceMove 
-    . reverse 
-    . head 
-    . filter (solvedBoard . gameBoard . head) 
-    . flatten 
+treeSolverDF = Solution
+    . map sourceMove
+    . reverse
+    . head
+    . filter (solvedBoard . gameBoard . head)
+    . flatten
     . buildTree
 
 -- |Prunes the tree of any already-check boards and uses this tree to solve
 -- the puzzle.  Has an annoying habit of eating up lots of memory and dying.  Needs
 -- work.
 treeSolverPruned :: Board -> Solution
-treeSolverPruned = Solution 
-    . map sourceMove 
-    . reverse 
-    . head 
-    . check 
+treeSolverPruned = Solution
+    . map sourceMove
+    . reverse
+    . head
+    . check
     . buildTree
 
 -- |Prunes the tree and solves the game (in theory!).
 check :: FCTree -> [[GameState]]
-check tr = 
+check tr =
     evalState (check' tr) S.empty
 
-  where 
+  where
     check' (Node s forests) = do
         bdset <- get
 
         let bd = gameBoard $ head s
 
-        if solvedBoard bd 
+        if solvedBoard bd
         then do
-            return [s] 
+            return [s]
 
-        else if S.member bd bdset 
+        else if S.member bd bdset
         then do
-            return [] 
-            
+            return []
+
         else do
-            modify (S.insert bd) 
+            modify (S.insert bd)
 
             concat `fmap` mapM check' forests
 
@@ -475,10 +475,10 @@ check tr =
 loadFile :: FilePath -> IO Board
 loadFile x = loadBoardFromText <$> readFile x
 
--- |Loads a board from a string.  The foundations part is implemented wrong, 
+-- |Loads a board from a string.  The foundations part is implemented wrong,
 -- and I'll probably fix it or something.
 loadBoardFromText :: String -> Board
-loadBoardFromText rawtext = 
+loadBoardFromText rawtext =
     lines rawtext `loadBoard` Board [] [[],[],[],[]] S.empty
 
   where
@@ -488,7 +488,7 @@ loadBoardFromText rawtext =
         'F' : 'C' : ' ' : s -> bd { freecells   = S.fromList $ parse s }
         'F' : ' ' :       s -> bd { foundations = parse s : foundations bd }
         _                   -> bd
-    
+
     parse = map parser . words
 
 -- |Parses a two-character string into a card.
@@ -499,9 +499,9 @@ parser (rankChar : rest) =
   where
     rank = fromMaybe (error $ "Bad parse string: " ++ (rankChar : ""))
         $ rankChar `lookup` zip "23456789TJQKA" ([Two .. King] ++ [Ace])
-        
+
     suit = suitParser rest
-        
+
 -- |Returns a single character for each rank.
 cardChar :: Rank -> Char
 cardChar c = case c of
@@ -546,10 +546,10 @@ deck = [Card x y | x <- [Ace ..], y <- [Heart ..]]
 
 -- |Shuffles a deck using the IO random generator.
 deckShuffle :: Eq a => [a] -> IO [a]
-deckShuffle xs = case xs of 
+deckShuffle xs = case xs of
     [] ->
         return []
-        
+
     xs -> do
         x <- randomRIO (0, length xs-1) :: IO Int
 
@@ -571,10 +571,10 @@ makeGame = do
         (s4, l5) = splitAt 6 l4
         (s5, l6) = splitAt 6 l5
         (s6, l7) = splitAt 6 l6
-       
+
         s7 = l7
         cs = [s0,s1,s2,s3,s4,s5,s6,s7]
-        
+
     return $ Board cs [[],[],[],[]] S.empty
 
 -- |Text based Freecell game.
@@ -583,49 +583,49 @@ playGame = do
     gm <- makeGame
 
     playloop gm
-    
+
   where
     playloop g = do
         print g
         putStrLn ("Entropy: " ++ show (entropyScore g))
 
-        if solvedBoard g 
-        then putStrLn "You win!" 
+        if solvedBoard g
+        then putStrLn "You win!"
         else do
             let
                 states   = allPermissable g
-                
+
                 moves    = map sourceMove states
                 boards   = map gameBoard  states
-                
+
                 movenums = [0..length moves]
-                
+
                 selMove = do
                     selectedMove <- read <$> getLine :: IO Int
-                    
-                    if (selectedMove >= length moves) || (selectedMove < 0) 
+
+                    if (selectedMove >= length moves) || (selectedMove < 0)
                     then do
                         putStrLn "Invalid move, select again."
-                        selMove 
-                        
-                    else 
+                        selMove
+
+                    else
                         return selectedMove
-                        
-            if null moves 
-            then putStrLn "No possible moves, you lose." 
-            else 
-                if length moves == 1 
+
+            if null moves
+            then putStrLn "No possible moves, you lose."
+            else
+                if length moves == 1
                 then do
-                    putStrLn "Move forced .... " 
-                    playloop (head boards) 
-                    
+                    putStrLn "Move forced .... "
+                    playloop (head boards)
+
                 else do
                     putStrLn "Select next move from list: "
-                    putStrLn $ zip movenums moves `concatFor` \(x,y) -> 
+                    putStrLn $ zip movenums moves `concatFor` \(x,y) ->
                         show x ++ ": " ++ show y
-                            
+
                     mv <- selMove
-                    
+
                     playloop $ boards !! mv
 
 -- |Creates a game and attempts to solve it.  The solver is rudimentary.
@@ -633,11 +633,11 @@ solveRandomGame :: IO ()
 solveRandomGame = do
     x <- makeGame
     print x
-    
+
     let j = treeSolverPruned x
-    
+
     writeFile "out.txt" (show x ++ show j)
-    
+
     print j
 
 solveFile :: FilePath -> IO ()
@@ -652,7 +652,7 @@ solveFile fn = do
 
 -- |A generic list function that was necessary.
 applyAt :: [a] -> Int -> (a->a) -> [a]
-applyAt list num f = 
+applyAt list num f =
     case after of
         x : xs -> before ++ [f x] ++ xs
         []     -> before
