@@ -6,7 +6,10 @@
 all: solver.hi
 
 solver.hi: solver.hs
-	ghc -c -XFlexibleContexts solver.hs
+	ghc -O2 -c -XFlexibleContexts solver.hs
 
 run:
-	ghci -XFlexibleContexts solver.hs
+	ghci -O2 -XFlexibleContexts solver.hs
+
+clean:
+	rm -f solver.hi solver.o
