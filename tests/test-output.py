@@ -22,6 +22,9 @@ class MyTests(unittest.TestCase):
         self._my_test_output(
             '< ./tests/data/24.fcs.board perl ./contrib/input-from-fc-solve',
             self._want_output)
+        self._my_test_output(
+            './solver.exe ./tests/data/24.hs.board',
+            open('./tests/data/24.hs.output.txt', 'r').read())
 
 
 if __name__ == '__main__':

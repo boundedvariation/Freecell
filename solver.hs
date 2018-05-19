@@ -646,7 +646,7 @@ solveFile fn = do
 
     let j = treeSolverPruned x
 
-    writeFile "out.txt" (show x ++ show j)
+    -- writeFile "out.txt" (show x ++ show j)
 
     print j
 
