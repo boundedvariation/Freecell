@@ -16,3 +16,6 @@ run:
 
 clean:
 	rm -f solver.hi solver.o
+
+test: all solver.exe
+	prove tests/*.{py,t}
