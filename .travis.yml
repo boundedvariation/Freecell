@@ -12,6 +12,7 @@ install:
     - sudo cpanm --notest File::Which String::ShellQuote Test::Differences Test::TrailingSpace
     - cabal update
     - cabal install mtl
+    - cabal install random
 perl:
     - "5.26"
 script:
