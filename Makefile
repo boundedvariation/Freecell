@@ -3,6 +3,8 @@
 # shlomif, 2018-05-01 20:44
 #
 
+SHELL = /bin/bash
+
 all: solver.hi
 
 solver.hi: solver.hs
