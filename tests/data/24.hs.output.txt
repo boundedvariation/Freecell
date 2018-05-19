@@ -1,0 +1,437 @@
+Ace Spade: CascadesSource -> Foundations
+Six Diamond: CascadesSource -> Cascades 5
+Jack Diamond: CascadesSource -> FreeCells
+Eight Heart: CascadesSource -> FreeCells
+Ace Diamond: CascadesSource -> Foundations
+Queen Diamond: CascadesSource -> FreeCells
+Six Spade: CascadesSource -> FreeCells
+Five Spade: CascadesSource -> Cascades 5
+Ace Heart: CascadesSource -> Foundations
+Two Heart: CascadesSource -> Foundations
+Four Heart: CascadesSource -> Cascades 5
+Three Heart: CascadesSource -> Cascades 0
+Ace Club: CascadesSource -> Foundations
+Three Heart: CascadesSource -> Foundations
+Six Spade: FreeCells -> Cascades 6
+Three Diamond: CascadesSource -> Cascades 0
+Queen Diamond: FreeCells -> Cascades 2
+Six Spade: CascadesSource -> FreeCells
+Eight Heart: FreeCells -> Cascades 6
+Three Club: CascadesSource -> Cascades 5
+Eight Heart: CascadesSource -> FreeCells
+Six Spade: FreeCells -> Cascades 6
+Jack Heart: CascadesSource -> FreeCells
+Six Spade: CascadesSource -> FreeCells
+Eight Heart: FreeCells -> Cascades 6
+Three Club: CascadesSource -> FreeCells
+Four Heart: CascadesSource -> Cascades 3
+Three Club: FreeCells -> Cascades 3
+Eight Heart: CascadesSource -> FreeCells
+Six Spade: FreeCells -> Cascades 6
+Queen Heart: CascadesSource -> FreeCells
+Five Heart: CascadesSource -> Cascades 6
+Eight Heart: FreeCells -> Cascades 1
+Three Club: CascadesSource -> FreeCells
+Four Heart: CascadesSource -> Cascades 5
+Three Club: FreeCells -> Cascades 5
+Eight Heart: CascadesSource -> FreeCells
+Jack Heart: FreeCells -> Cascades 1
+Three Diamond: CascadesSource -> FreeCells
+Four Spade: CascadesSource -> Cascades 6
+Three Diamond: FreeCells -> Cascades 6
+Jack Diamond: FreeCells -> Cascades 0
+Jack Heart: CascadesSource -> FreeCells
+Eight Heart: FreeCells -> Cascades 1
+Five Club: CascadesSource -> FreeCells
+Jack Club: CascadesSource -> Cascades 2
+Two Spade: CascadesSource -> Foundations
+Eight Heart: CascadesSource -> FreeCells
+Five Club: FreeCells -> Cascades 1
+Five Diamond: CascadesSource -> FreeCells
+Eight Heart: FreeCells -> Cascades 3
+Five Club: CascadesSource -> FreeCells
+Jack Heart: FreeCells -> Cascades 1
+Eight Heart: CascadesSource -> FreeCells
+Five Diamond: FreeCells -> Cascades 3
+Jack Diamond: CascadesSource -> FreeCells
+Jack Heart: CascadesSource -> Cascades 0
+Five Club: FreeCells -> Cascades 1
+Five Diamond: CascadesSource -> FreeCells
+Eight Heart: FreeCells -> Cascades 3
+Five Club: CascadesSource -> FreeCells
+Five Diamond: FreeCells -> Cascades 1
+Three Diamond: CascadesSource -> FreeCells
+Four Spade: CascadesSource -> Cascades 1
+Three Diamond: FreeCells -> Cascades 1
+Eight Heart: CascadesSource -> FreeCells
+Five Club: FreeCells -> Cascades 3
+Eight Diamond: CascadesSource -> FreeCells
+Ten Diamond: CascadesSource -> Cascades 2
+Ten Club: CascadesSource -> Cascades 0
+Nine Diamond: CascadesSource -> Cascades 0
+Eight Spade: CascadesSource -> Cascades 0
+Three Club: CascadesSource -> Cascades 7
+Four Heart: CascadesSource -> Cascades 3
+Three Club: CascadesSource -> Cascades 3
+Four Diamond: CascadesSource -> Cascades 5
+Three Club: CascadesSource -> Cascades 5
+Four Heart: CascadesSource -> Foundations
+Seven Diamond: CascadesSource -> Cascades 0
+Five Heart: CascadesSource -> Cascades 7
+Six Spade: CascadesSource -> Cascades 0
+Eight Heart: FreeCells -> Cascades 6
+Five Club: CascadesSource -> FreeCells
+Eight Diamond: FreeCells -> Cascades 3
+Eight Heart: CascadesSource -> FreeCells
+Five Club: FreeCells -> Cascades 6
+Five Heart: CascadesSource -> Cascades 0
+Eight Diamond: CascadesSource -> FreeCells
+Eight Heart: FreeCells -> Cascades 3
+Five Club: CascadesSource -> FreeCells
+Eight Diamond: FreeCells -> Cascades 6
+Eight Heart: CascadesSource -> FreeCells
+Jack Diamond: FreeCells -> Cascades 3
+Five Heart: CascadesSource -> Cascades 7
+Eight Diamond: CascadesSource -> FreeCells
+Five Club: FreeCells -> Cascades 6
+Five Heart: CascadesSource -> Cascades 0
+Five Club: CascadesSource -> FreeCells
+Eight Heart: FreeCells -> Cascades 6
+Five Heart: CascadesSource -> Cascades 7
+Six Spade: CascadesSource -> FreeCells
+Five Heart: CascadesSource -> Foundations
+Six Spade: FreeCells -> Cascades 0
+Jack Diamond: CascadesSource -> FreeCells
+Five Club: FreeCells -> Cascades 3
+Eight Heart: CascadesSource -> FreeCells
+Eight Diamond: FreeCells -> Cascades 6
+Five Club: CascadesSource -> FreeCells
+Eight Heart: FreeCells -> Cascades 3
+Six Spade: CascadesSource -> FreeCells
+Six Club: CascadesSource -> Cascades 0
+Seven Spade: CascadesSource -> Cascades 3
+Five Club: FreeCells -> Cascades 7
+Seven Spade: CascadesSource -> Cascades 6
+Eight Heart: CascadesSource -> FreeCells
+Six Spade: FreeCells -> Cascades 3
+Five Club: CascadesSource -> FreeCells
+Eight Heart: FreeCells -> Cascades 7
+Seven Spade: CascadesSource -> Cascades 7
+Eight Diamond: CascadesSource -> FreeCells
+Five Club: FreeCells -> Cascades 6
+Six Spade: CascadesSource -> FreeCells
+Jack Diamond: FreeCells -> Cascades 3
+Five Club: CascadesSource -> FreeCells
+Six Spade: FreeCells -> Cascades 6
+Six Club: CascadesSource -> FreeCells
+Six Spade: CascadesSource -> Cascades 0
+Five Club: FreeCells -> Cascades 6
+Jack Diamond: CascadesSource -> FreeCells
+Six Club: FreeCells -> Cascades 3
+Five Club: CascadesSource -> FreeCells
+Eight Diamond: FreeCells -> Cascades 6
+Seven Spade: CascadesSource -> Cascades 6
+Six Club: CascadesSource -> FreeCells
+Five Club: FreeCells -> Cascades 3
+Seven Spade: CascadesSource -> Cascades 7
+Five Club: CascadesSource -> FreeCells
+Jack Diamond: FreeCells -> Cascades 3
+Seven Spade: CascadesSource -> Cascades 6
+Eight Heart: CascadesSource -> FreeCells
+Five Club: FreeCells -> Cascades 7
+Jack Diamond: CascadesSource -> FreeCells
+Six Club: FreeCells -> Cascades 3
+Five Club: CascadesSource -> FreeCells
+Jack Diamond: FreeCells -> Cascades 7
+Six Spade: CascadesSource -> FreeCells
+Six Club: CascadesSource -> Cascades 0
+Five Club: FreeCells -> Cascades 3
+Three Club: CascadesSource -> FreeCells
+Four Diamond: CascadesSource -> Cascades 3
+Three Club: FreeCells -> Cascades 3
+Jack Diamond: CascadesSource -> FreeCells
+Six Spade: FreeCells -> Cascades 7
+Six Club: CascadesSource -> FreeCells
+Six Spade: CascadesSource -> Cascades 0
+Six Club: FreeCells -> Cascades 7
+Five Spade: CascadesSource -> FreeCells
+Six Diamond: CascadesSource -> Cascades 6
+Five Spade: FreeCells -> Cascades 6
+Six Club: CascadesSource -> FreeCells
+Eight Heart: FreeCells -> Cascades 7
+Seven Club: CascadesSource -> Cascades 7
+Queen Heart: FreeCells -> Cascades 5
+Ten Diamond: CascadesSource -> FreeCells
+Jack Club: CascadesSource -> Cascades 5
+Ten Diamond: FreeCells -> Cascades 5
+Queen Diamond: CascadesSource -> FreeCells
+Ten Heart: CascadesSource -> FreeCells
+Queen Diamond: FreeCells -> Cascades 2
+King Diamond: CascadesSource -> FreeCells
+Two Diamond: CascadesSource -> Foundations
+Six Club: FreeCells -> Cascades 4
+Queen Diamond: CascadesSource -> FreeCells
+Three Diamond: CascadesSource -> Foundations
+Queen Diamond: FreeCells -> Cascades 2
+Six Club: CascadesSource -> FreeCells
+Ten Heart: FreeCells -> Cascades 4
+Six Spade: CascadesSource -> FreeCells
+Six Club: FreeCells -> Cascades 0
+Ten Heart: CascadesSource -> FreeCells
+Six Spade: FreeCells -> Cascades 4
+Three Club: CascadesSource -> FreeCells
+Four Diamond: CascadesSource -> Cascades 6
+Three Club: FreeCells -> Cascades 6
+Five Club: CascadesSource -> FreeCells
+Ten Heart: FreeCells -> Cascades 3
+Six Spade: CascadesSource -> FreeCells
+Five Club: FreeCells -> Cascades 4
+Ten Heart: CascadesSource -> FreeCells
+Jack Diamond: FreeCells -> Cascades 3
+Five Club: CascadesSource -> FreeCells
+Six Spade: FreeCells -> Cascades 4
+Six Club: CascadesSource -> FreeCells
+Six Spade: CascadesSource -> Cascades 0
+Five Club: FreeCells -> Cascades 4
+Jack Diamond: CascadesSource -> FreeCells
+Six Club: FreeCells -> Cascades 3
+Five Club: CascadesSource -> FreeCells
+Ten Heart: FreeCells -> Cascades 4
+Six Club: CascadesSource -> FreeCells
+Five Club: FreeCells -> Cascades 3
+Four Spade: CascadesSource -> FreeCells
+Five Diamond: CascadesSource -> Cascades 0
+Four Spade: FreeCells -> Cascades 0
+Six Club: FreeCells -> Cascades 1
+Queen Diamond: CascadesSource -> FreeCells
+Six Club: CascadesSource -> FreeCells
+Jack Diamond: FreeCells -> Cascades 1
+Queen Diamond: FreeCells -> Cascades 2
+Five Club: CascadesSource -> FreeCells
+Six Club: FreeCells -> Cascades 3
+Jack Diamond: CascadesSource -> FreeCells
+King Diamond: FreeCells -> Cascades 1
+Queen Diamond: CascadesSource -> FreeCells
+King Diamond: CascadesSource -> FreeCells
+Jack Diamond: FreeCells -> Cascades 1
+Six Club: CascadesSource -> FreeCells
+Queen Diamond: FreeCells -> Cascades 3
+Jack Diamond: CascadesSource -> FreeCells
+Five Club: FreeCells -> Cascades 1
+Ten Heart: CascadesSource -> FreeCells
+Six Club: FreeCells -> Cascades 4
+Queen Diamond: CascadesSource -> Cascades 2
+Jack Diamond: FreeCells -> Cascades 3
+Five Club: CascadesSource -> FreeCells
+King Diamond: FreeCells -> Cascades 1
+Queen Diamond: CascadesSource -> FreeCells
+King Diamond: CascadesSource -> FreeCells
+Five Club: FreeCells -> Cascades 1
+Jack Diamond: CascadesSource -> FreeCells
+King Diamond: FreeCells -> Cascades 3
+Queen Diamond: FreeCells -> Cascades 2
+Five Club: CascadesSource -> FreeCells
+Queen Diamond: CascadesSource -> Cascades 1
+Queen Diamond: CascadesSource -> FreeCells
+King Spade: CascadesSource -> Cascades 1
+Three Spade: CascadesSource -> Foundations
+Four Spade: CascadesSource -> Foundations
+Queen Diamond: FreeCells -> Cascades 1
+Five Diamond: CascadesSource -> Cascades 4
+King Diamond: CascadesSource -> FreeCells
+Five Club: FreeCells -> Cascades 3
+Three Club: CascadesSource -> FreeCells
+Four Diamond: CascadesSource -> Cascades 3
+Three Club: FreeCells -> Cascades 3
+Five Spade: CascadesSource -> Foundations
+Six Diamond: CascadesSource -> Cascades 7
+Six Spade: CascadesSource -> Foundations
+Nine Heart: CascadesSource -> FreeCells
+Six Heart: CascadesSource -> Cascades 6
+Nine Spade: CascadesSource -> Cascades 5
+Jack Diamond: FreeCells -> Cascades 2
+Seven Diamond: CascadesSource -> FreeCells
+Six Heart: CascadesSource -> Foundations
+Seven Diamond: FreeCells -> Cascades 0
+Six Diamond: CascadesSource -> Cascades 6
+Three Club: CascadesSource -> FreeCells
+Six Diamond: CascadesSource -> Cascades 7
+Four Diamond: CascadesSource -> Foundations
+Five Club: CascadesSource -> Cascades 7
+Three Club: FreeCells -> Cascades 3
+Seven Diamond: CascadesSource -> FreeCells
+Seven Spade: CascadesSource -> Foundations
+Eight Diamond: CascadesSource -> Cascades 5
+Seven Diamond: FreeCells -> Cascades 0
+Nine Heart: FreeCells -> Cascades 6
+Seven Diamond: CascadesSource -> FreeCells
+Eight Spade: CascadesSource -> Cascades 6
+Seven Diamond: FreeCells -> Cascades 6
+Three Club: CascadesSource -> FreeCells
+Ten Heart: FreeCells -> Cascades 3
+Nine Diamond: CascadesSource -> FreeCells
+Ten Club: CascadesSource -> Cascades 2
+Nine Diamond: FreeCells -> Cascades 2
+Ten Heart: CascadesSource -> FreeCells
+Three Club: FreeCells -> Cascades 3
+Jack Heart: CascadesSource -> FreeCells
+Three Club: CascadesSource -> FreeCells
+Ten Heart: FreeCells -> Cascades 3
+Queen Spade: CascadesSource -> FreeCells
+Eight Club: CascadesSource -> Cascades 2
+Nine Club: CascadesSource -> Cascades 3
+Two Club: CascadesSource -> Foundations
+Three Club: FreeCells -> Foundations
+Four Club: CascadesSource -> Foundations
+Five Diamond: CascadesSource -> Foundations
+Five Club: CascadesSource -> Foundations
+Six Club: CascadesSource -> Foundations
+Six Diamond: CascadesSource -> Foundations
+Seven Diamond: CascadesSource -> Foundations
+Seven Club: CascadesSource -> Foundations
+Eight Diamond: CascadesSource -> Foundations
+Eight Heart: CascadesSource -> Cascades 3
+Jack Heart: FreeCells -> Cascades 0
+Queen Spade: FreeCells -> Cascades 4
+Jack Heart: CascadesSource -> Cascades 4
+King Diamond: FreeCells -> Cascades 0
+Eight Club: CascadesSource -> Foundations
+Eight Heart: CascadesSource -> Cascades 5
+King Diamond: CascadesSource -> FreeCells
+Eight Heart: CascadesSource -> Cascades 3
+Eight Spade: CascadesSource -> Foundations
+Nine Diamond: CascadesSource -> Foundations
+Nine Heart: CascadesSource -> Cascades 2
+King Diamond: FreeCells -> Cascades 0
+Nine Spade: CascadesSource -> Cascades 6
+Eight Heart: CascadesSource -> Cascades 6
+King Diamond: CascadesSource -> FreeCells
+Eight Heart: CascadesSource -> Cascades 3
+Nine Spade: CascadesSource -> FreeCells
+King Diamond: FreeCells -> Cascades 0
+Eight Heart: CascadesSource -> Cascades 6
+Nine Spade: FreeCells -> Cascades 5
+Nine Spade: CascadesSource -> Cascades 7
+King Diamond: CascadesSource -> FreeCells
+Nine Spade: CascadesSource -> Cascades 5
+Nine Spade: CascadesSource -> FreeCells
+Eight Heart: CascadesSource -> FreeCells
+Nine Spade: FreeCells -> Cascades 0
+King Diamond: FreeCells -> Cascades 6
+Nine Spade: CascadesSource -> Cascades 5
+Nine Spade: CascadesSource -> FreeCells
+Ten Diamond: CascadesSource -> Cascades 0
+Eight Heart: FreeCells -> Cascades 3
+Nine Spade: FreeCells -> Cascades 0
+Jack Club: CascadesSource -> Cascades 1
+King Diamond: CascadesSource -> FreeCells
+Nine Spade: CascadesSource -> Cascades 6
+Ten Diamond: CascadesSource -> Cascades 1
+Nine Spade: CascadesSource -> Cascades 1
+King Diamond: FreeCells -> Cascades 0
+Nine Spade: CascadesSource -> Cascades 6
+Eight Heart: CascadesSource -> Cascades 6
+King Diamond: CascadesSource -> FreeCells
+Nine Club: CascadesSource -> Cascades 1
+King Diamond: FreeCells -> Cascades 0
+Nine Club: CascadesSource -> Foundations
+King Diamond: CascadesSource -> FreeCells
+Ten Heart: CascadesSource -> FreeCells
+King Diamond: FreeCells -> Cascades 0
+Nine Heart: CascadesSource -> Cascades 3
+Ten Heart: FreeCells -> Cascades 7
+Ten Club: CascadesSource -> Cascades 4
+Nine Heart: CascadesSource -> Cascades 4
+King Diamond: CascadesSource -> FreeCells
+Ten Diamond: CascadesSource -> Foundations
+Ten Heart: CascadesSource -> Cascades 1
+King Diamond: FreeCells -> Cascades 0
+Nine Heart: CascadesSource -> Cascades 3
+King Diamond: CascadesSource -> FreeCells
+Nine Heart: CascadesSource -> FreeCells
+King Diamond: FreeCells -> Cascades 0
+Ten Club: CascadesSource -> Cascades 2
+Nine Heart: FreeCells -> Cascades 2
+Nine Heart: CascadesSource -> Cascades 3
+King Diamond: CascadesSource -> FreeCells
+Nine Heart: CascadesSource -> Cascades 2
+Nine Heart: CascadesSource -> FreeCells
+Ten Club: CascadesSource -> Foundations
+Nine Heart: FreeCells -> Cascades 0
+King Diamond: FreeCells -> Cascades 3
+Nine Heart: CascadesSource -> FreeCells
+Ten Heart: CascadesSource -> Cascades 0
+Nine Heart: FreeCells -> Cascades 7
+Ten Heart: CascadesSource -> FreeCells
+King Diamond: CascadesSource -> FreeCells
+Ten Heart: FreeCells -> Cascades 0
+Nine Heart: CascadesSource -> FreeCells
+Ten Heart: CascadesSource -> FreeCells
+King Diamond: FreeCells -> Cascades 0
+Jack Club: CascadesSource -> Cascades 5
+Nine Heart: FreeCells -> Cascades 3
+Ten Heart: FreeCells -> Cascades 5
+Ten Heart: CascadesSource -> Cascades 7
+King Diamond: CascadesSource -> FreeCells
+Ten Heart: CascadesSource -> Cascades 5
+Jack Diamond: CascadesSource -> Foundations
+King Diamond: FreeCells -> Cascades 0
+Queen Club: CascadesSource -> Cascades 0
+Jack Heart: CascadesSource -> Cascades 0
+Ten Heart: CascadesSource -> Cascades 2
+Jack Heart: CascadesSource -> Cascades 4
+Jack Club: CascadesSource -> Foundations
+Ten Heart: CascadesSource -> FreeCells
+Nine Heart: CascadesSource -> FreeCells
+Ten Heart: FreeCells -> Cascades 2
+Jack Heart: CascadesSource -> Cascades 0
+Nine Heart: FreeCells -> Cascades 3
+Ten Heart: CascadesSource -> FreeCells
+Nine Heart: CascadesSource -> FreeCells
+Queen Spade: CascadesSource -> FreeCells
+Nine Heart: FreeCells -> Cascades 2
+Ten Heart: FreeCells -> Cascades 3
+Nine Heart: CascadesSource -> FreeCells
+Jack Heart: CascadesSource -> Cascades 2
+Nine Heart: FreeCells -> Cascades 4
+Queen Spade: FreeCells -> Cascades 7
+Jack Heart: CascadesSource -> FreeCells
+Ten Heart: CascadesSource -> FreeCells
+Jack Heart: FreeCells -> Cascades 2
+Nine Heart: CascadesSource -> FreeCells
+Ten Heart: FreeCells -> Cascades 3
+Jack Heart: CascadesSource -> FreeCells
+Ten Heart: CascadesSource -> FreeCells
+Queen Spade: CascadesSource -> FreeCells
+Nine Heart: FreeCells -> Cascades 2
+Ten Heart: FreeCells -> Cascades 3
+Nine Heart: CascadesSource -> FreeCells
+Queen Heart: CascadesSource -> Cascades 2
+Jack Heart: FreeCells -> Cascades 0
+Nine Heart: FreeCells -> Cascades 4
+Queen Spade: FreeCells -> Cascades 7
+Jack Heart: CascadesSource -> Cascades 7
+Queen Club: CascadesSource -> Foundations
+King Club: CascadesSource -> Foundations
+Ten Spade: CascadesSource -> Cascades 7
+Nine Heart: CascadesSource -> Cascades 7
+King Diamond: CascadesSource -> FreeCells
+Queen Diamond: CascadesSource -> Foundations
+King Diamond: FreeCells -> Foundations
+Queen Heart: CascadesSource -> Cascades 1
+Ten Heart: CascadesSource -> FreeCells
+King Heart: CascadesSource -> Cascades 0
+Jack Spade: CascadesSource -> Cascades 1
+Seven Heart: CascadesSource -> Foundations
+Eight Heart: CascadesSource -> Foundations
+Nine Spade: CascadesSource -> Foundations
+Nine Heart: CascadesSource -> Foundations
+Ten Heart: FreeCells -> Foundations
+Ten Spade: CascadesSource -> Foundations
+Jack Spade: CascadesSource -> Foundations
+Jack Heart: CascadesSource -> Foundations
+Queen Heart: CascadesSource -> Foundations
+Queen Spade: CascadesSource -> Foundations
+King Heart: CascadesSource -> Foundations
+King Spade: CascadesSource -> Foundations
+
