@@ -10,6 +10,8 @@ install:
     - python3 --version
     - sudo -H `which python3` -m pip install flake8 pycotap
     - sudo cpanm --notest File::Which String::ShellQuote Test::Differences Test::TrailingSpace
+    - cabal update
+    - cabal install mtl
 perl:
     - "5.26"
 script:
