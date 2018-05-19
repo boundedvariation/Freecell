@@ -3,6 +3,8 @@
 # shlomif, 2018-05-01 20:44
 #
 
+SHELL = /bin/bash
+
 all: solver.hi
 
 solver.hi: solver.hs
@@ -16,3 +18,6 @@ run:
 
 clean:
 	rm -f solver.hi solver.o
+
+test: all solver.exe
+	prove tests/*.{py,t}
